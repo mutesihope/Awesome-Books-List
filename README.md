@@ -71,7 +71,7 @@ Clone this repository to your desired folder:
 Run this Command:
 
 ```sh
-  cd my-folder
+  cd Awesome-Books-List
   git clone git@github.com:mutesihope/Awesome-Books-List.git
 ```
 
