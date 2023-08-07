@@ -1,7 +1,5 @@
-// code for generating the (Add books) 
-const books = [];
 
-// Function to add a new book to the collection
+const books = [];
 function addBook(title, author) {
   const book = {
     title,
