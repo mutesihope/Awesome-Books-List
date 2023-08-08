@@ -5,7 +5,7 @@
     outline: 0;
     font-family: serif;
     box-sizing: border-box;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     text-decoration: none;
     list-style: none;
     text-align: left; 
