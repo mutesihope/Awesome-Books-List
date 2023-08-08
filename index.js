@@ -1,13 +1,3 @@
-  // // Function to remove a book from the list and update local storage
-  // function removeBook(event) {
-  //   const bookDiv = event.target.parentNode;
-  //   bookDiv.remove();
-    
-  
-  //   // Update local storage after removing the book
-  //   updateLocalStorage();
-  // }
-  
   function removeBook(event) {
     const bookDiv = event.target.parentNode;
     const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
