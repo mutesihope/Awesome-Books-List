@@ -23,8 +23,8 @@ function addBook(event) {
   const author = authorInput.value;
   // avoids default or empty submition
   if (title.trim() === '' || author.trim() === '') {
-  alert('Please enter both title and author name.');
-  return;
+    console.log('Please enter both title and author name.');
+    return;
   }
 
   const bookList = document.querySelector('.Booklist ul');
