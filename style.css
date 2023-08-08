@@ -1,86 +1,78 @@
-
 * {
-    margin: 0;    
-    padding: 0;
-    outline: 0;
-    font-family: serif;
-    box-sizing: border-box;
-    /* overflow-x: hidden; */
-    text-decoration: none;
-    list-style: none;
-    text-align: left; 
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+
+  /* overflow-x: hidden; */
+  text-decoration: none;
+  list-style: none;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
 }
 
 .container {
-    width: 400px;
-    justify-items: center;
-    text-align: center;
-    /* background-color: rgb(234, 230, 235); */
-    margin-left: 250px;
-    padding: 10px 0 20px 20px;
-    border: 1px solid rgb(231, 225, 225);
-    margin-top: 50px;
+  width: 400px;
+  justify-items: center;
+  text-align: center;
+
+  /* background-color: rgb(234, 230, 235); */
+  margin-left: 250px;
+  padding: 10px 0 20px 20px;
+  border: 1px solid rgb(231, 225, 225);
+  margin-top: 50px;
 }
 
 .hr-line {
-    width: 50%;
+  width: 50%;
 }
-
 
 h1 {
-    font-size: 1.4rem;
-    margin: 1.6rem 0 2rem;
-    color: rgb(15, 15, 15);
-
+  font-size: 1.4rem;
+  margin: 1.6rem 0 2rem;
+  color: rgb(15, 15, 15);
 }
+
 .Booklist {
-    padding: 5px;
-    letter-spacing: 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  padding: 5px;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .button-submit {
-    width: 50px;
-    padding: 0.2rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
+  width: 50px;
+  padding: 0.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
 }
 
 .button-remove {
-    width: 80px;
-    padding: 0.2rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 5px;
-    text-align: center;
+  width: 80px;
+  padding: 0.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 #title {
-    width: 50%;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    border: 1px solid rgb(12, 12, 12);
-    margin-bottom: -0.5rem;
-    margin-top: 10px;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(12, 12, 12);
+  margin-bottom: -0.5rem;
+  margin-top: 10px;
 }
 
 #author {
-    width: 50%;
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 0.5rem;
-    border: 1px solid rgb(95, 92, 92);
-    margin-bottom: -0.9rem;
+  width: 50%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(95, 92, 92);
+  margin-bottom: -0.9rem;
 }
-
-
-
-
-
