@@ -1,15 +1,3 @@
-  function removeBook(event) {
-    const bookDiv = event.target.parentNode;
-    const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
-    bookDiv.remove();
-    if (hrLine) {
-      hrLine.remove(); // Remove the <hr> line if it exists
-    }
-  
-    // Update local storage after removing the book
-    updateLocalStorage();
-  }
-
 // Function to add a book to the list and update local storage
 function addBook(event) {
   event.preventDefault();
@@ -52,6 +40,18 @@ function addBook(event) {
   authorInput.value = '';
 
   // Update local storage after adding the book
+  updateLocalStorage();
+}
+
+function removeBook(event) {
+  const bookDiv = event.target.parentNode;
+  const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
+  bookDiv.remove();
+  if (hrLine) {
+    hrLine.remove(); // Remove the <hr> line if it exists
+  }
+
+  // Update local storage after removing the book
   updateLocalStorage();
 }
 
