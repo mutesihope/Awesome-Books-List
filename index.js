@@ -1,3 +1,14 @@
+function removeBook(event) {
+  const bookDiv = event.target.parentNode;
+  const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
+  bookDiv.remove();
+  if (hrLine) {
+    hrLine.remove(); // Remove the <hr> line if it exists
+  }
+
+  // Update local storage after removing the book
+  updateLocalStorage();
+}
 // Function to add a book to the list and update local storage
 function addBook(event) {
   event.preventDefault();
@@ -6,13 +17,11 @@ function addBook(event) {
   const authorInput = document.getElementById('author');
   const title = titleInput.value;
   const author = authorInput.value;
-
-  // avoids default or empty submition 
-    if (title.trim() === '' || author.trim() === '') {
-    alert('Please enter both title and author name.');
-    return;
+  // avoids default or empty submition
+  if (title.trim() === '' || author.trim() === '') {
+  alert('Please enter both title and author name.');
+  return;
   }
-
 
   const bookList = document.querySelector('.Booklist ul');
   const newBookItem = document.createElement('li');
@@ -38,20 +47,7 @@ function addBook(event) {
   // Clear input fields after adding the book
   titleInput.value = '';
   authorInput.value = '';
-
   // Update local storage after adding the book
-  updateLocalStorage();
-}
-
-function removeBook(event) {
-  const bookDiv = event.target.parentNode;
-  const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
-  bookDiv.remove();
-  if (hrLine) {
-    hrLine.remove(); // Remove the <hr> line if it exists
-  }
-
-  // Update local storage after removing the book
   updateLocalStorage();
 }
 
