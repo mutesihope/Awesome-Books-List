@@ -101,5 +101,5 @@ function loadBooks() {
 const addButton = document.querySelector('.button-submit');
 addButton.addEventListener('click', addBook);
 
-// Load books from local storage on page load
+// Load books from local storage on new page load
 window.addEventListener('load', loadBooks);
