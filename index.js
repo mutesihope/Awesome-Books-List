@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable no-use-before-define */
+/* eslint-disable max-classes-per-file */
 function removeBook(event) {
   const bookDiv = event.target.parentNode;
   const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
