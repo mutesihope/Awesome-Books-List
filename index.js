@@ -106,27 +106,3 @@ addButton.addEventListener('click', addBook);
 
 // Load books from local storage on new page load
 window.addEventListener('load', loadBooks);
-
-handleFormSubmission(event) {
-  event.preventDefault();
-
-  const bookTitle = document.getElementById('bookTitle');
-  const bookAuthor = document.getElementById('bookAuthor');
-
-  const title = bookTitle.value.trim();
-  const author = bookAuthor.value.trim();
-
-  if (title === '' || author === '') {
-    console.log('Please enter both title and author name.');
-    return;
-  }
-
-  const book = new Book(title, author);
-  this.books.push(book);
-
-  this.saveBooksToStorage();
-  this.displayBooks();
-
-  bookTitle.value = '';
-  bookAuthor.value = '';
-}
