@@ -48,23 +48,26 @@ class BookListManager {
   }
 
   renderBook(book) {
-    const bookList = document.querySelector('.Booklist');
+    const bookList = document.querySelector('.Booklist ul');
 
-  const bookDiv = document.createElement('div');
-  bookDiv.className = 'book-entry';
+    const newBookItem = document.createElement('li');
+    newBookItem.innerHTML = `${book.title}<span> by </span>${book.author}`;
 
-  const newBookItem = document.createElement('li');
-  newBookItem.textContent = `${book.title} by ${book.author}`;
+    const removeButton = document.createElement('button');
+    removeButton.className = 'button-remove';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', this.removeBook.bind(this));
 
-  const removeButton = document.createElement('button');
-  removeButton.className = 'button-remove';
-  removeButton.textContent = 'Remove';
-  removeButton.addEventListener('click', (event) => this.removeBook(event));
+    const bookDiv = document.createElement('div');
+    bookDiv.className = 'Booklist';
+    bookDiv.appendChild(newBookItem);
+    bookDiv.appendChild(removeButton);
 
-  bookDiv.appendChild(newBookItem);
-  bookDiv.appendChild(removeButton);
+    const hrLine = document.createElement('hr');
+    hrLine.className = 'hr-line';
 
-  bookList.appendChild(bookDiv);
+    bookList.appendChild(bookDiv);
+    bookList.appendChild(hrLine);
   }
 
 window.addEventListener('load', () => {
