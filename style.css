@@ -55,7 +55,7 @@ h1 {
 }
 
 #bookData {
-  background-color: rgb(243, 233, 252);
+  /* background-color: rgb(215, 178, 247); */
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -70,10 +70,11 @@ h1 {
 }
 
 #bookForm input {
-  background-color: rgb(228, 203, 252);
+  background-color: rgb(235, 232, 237);
   padding: 7px;
   border: none;
   outline: none;
+  border-radius: 5px;
 }
 
 .book-lists button {
@@ -104,4 +105,8 @@ h1 {
   padding-top: 10px;
   font-family: 'poppins', sans-serif;
   font-size: large;
+}
+
+#bookData {
+  background-color: rgb(231, 226, 226);
 }
