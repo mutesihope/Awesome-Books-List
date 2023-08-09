@@ -46,3 +46,42 @@ class BookManager{
       this.bookData.appendChild(bookDiv);
     });
 }
+
+createBookDiv(book) {
+  const bookDiv = document.createElement('div');
+  bookDiv.classList.add('book-list');
+  bookDiv.textContent = `${book.title} by ${book.author}`;
+
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = 'Delete';
+  removeBtn.addEventListener('click', () => this.removeBook(index));
+
+  bookDiv.appendChild(removeBtn);
+  bookDiv.appendChild(document.createElement('hr'));
+  return bookDiv;
+}
+
+
+
+removeBook(index) {
+  this.books.splice(index, 1);
+
+  this.saveBooksToStorage();
+  this.displayBooksToStorage();
+}
+
+showSection(sectionId) {
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach((section) => {
+    section.classList.toggle('active', section.id === sectionId);
+  });
+}
+
+init() {
+  this.showSection('bookSection');
+}
+
+}
+
+const BookManager = new BookManager();
+bookManager.init();
