@@ -55,7 +55,7 @@ h1 {
 }
 
 #bookData {
-  /* background-color: rgb(215, 178, 247); */
+  background-color: rgb(215, 178, 247);
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -105,8 +105,4 @@ h1 {
   padding-top: 10px;
   font-family: 'poppins', sans-serif;
   font-size: large;
-}
-
-#bookData {
-  background-color: rgb(231, 226, 226);
 }
