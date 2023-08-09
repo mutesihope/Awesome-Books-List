@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable class-methods-use-this */
-/* eslint-disable no-use-before-define */
-/* eslint-disable max-classes-per-file */
 class Book {
   constructor(title, author) {
     this.title = title;
