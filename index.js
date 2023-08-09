@@ -69,6 +69,30 @@ function updateLocalStorage() {
   localStorage.setItem('books', JSON.stringify(books));
 }
 
+handleFormSubmission(event) {
+  event.preventDefault();
+
+  const bookTitle = document.getElementById('bookTitle');
+  const bookAuthor = document.getElementById('bookAuthor');
+
+  const title = bookTitle.value.trim();
+  const author = bookAuthor.value.trim();
+
+  if (title === '' || author === '') {
+    console.log('Please enter both title and author name.');
+    return;
+  }
+
+  const book = new Book(title, author);
+  this.books.push(book);
+
+  this.saveBooksToStorage();
+  this.displayBooks();
+
+  bookTitle.value = '';
+  bookAuthor.value = '';
+}
+
 // Function to load books from local storage
 function loadBooks() {
   const books = JSON.parse(localStorage.getItem('books'));
