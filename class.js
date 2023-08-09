@@ -47,6 +47,27 @@ class BookListManager {
     this.authorInput.value = '';
   }
 
+  renderBook(book) {
+    const bookList = document.querySelector('.Booklist ul');
+    const newBookItem = document.createElement('li');
+    newBookItem.innerHTML = `${book.title} <span> by </span> ${book.author}`;
+
+    const removeButton = document.createElement('button');
+    removeButton.className = 'remove-button';
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', this.removeBook.bind(this));
+
+    const bookDiv = document.createElement('div');
+    bookDiv.className = 'Booklist';
+    bookDiv.appendChild(newBookItem);
+    bookDiv.appendChild(removeButton);
+
+    const hrLine = document.createElement('hr');
+    hrLine.classList = 'hr-line';
+
+    bookList.appendChild(bookDiv);
+    bookList.appendChild(hrLine);
+  }
 window.addEventListener('load', () => {
   const bookListManager = new BookListManager();
 });
