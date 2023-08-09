@@ -12,7 +12,7 @@
 }
 
 .container {
-  width: 400px;
+  width: 500px;
   justify-items: center;
   text-align: center;
 
@@ -37,8 +37,23 @@ h1 {
   padding: 5px;
   letter-spacing: 1px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  /* flex-direction: column; */
   gap: 10px;
+}
+
+.Booklist li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgb(201, 201, 218);
+  padding: 5px 100px 0px 10px;
+}
+
+.Booklist li {
+  background-color: rgb(201, 201, 218);
+  
 }
 
 .button-submit {
