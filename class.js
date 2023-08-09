@@ -47,6 +47,20 @@ class BookListManager {
     this.authorInput.value = '';
   }
 
+  updateLocalStorage() {
+    localStorage.setItem('books', JSON.stringify(this.bookList));
+  }
+
+  loadBooks() {
+    const storedBooks = JSON.parse(localStorage.getItem('books'));
+
+    if (storedBooks) {
+      this.bookList = storedBooks;
+      storedBooks.forEach((book) => this.renderBook(book));
+    }
+  }
+}
+
 window.addEventListener('load', () => {
   const bookListManager = new BookListManager();
 });
