@@ -5,7 +5,7 @@ class BookListManager {
     this.addButton = document.querySelector('.button-submit');
     this.titleInput = document.getElementById('title');
     this.authorInput = document.getElementById('author');
-
+    
     this.addButton.addEventListener('click', this.addBook.bind(this));
   }
 
@@ -13,19 +13,18 @@ class BookListManager {
     const bookDiv = event.target.parentNode;
     const hrLine = bookDiv.nextElementSibling;
 
-    const title = bookDiv.querySelector('li').innerText.split(' by ')[0];
-
-    const bookIndex = this.bookList.findIndex(book => book.title === title);
-
-    if (bookIndex !== -1) {
-      this.bookList.splice(bookIndex, 1);
-      this.updateLocalStorage();
-    }
+    // Find the index of the book to be removed
+    const bookIndex = Array.from(bookDiv.parentNode.children).indexOf(bookDiv);
 
     bookDiv.remove();
     if (hrLine) {
       hrLine.remove();
     }
+
+    // Remove the book from the bookList
+    this.bookList.splice(bookIndex, 1);
+
+    this.updateLocalStorage();
   }
 
   addBook(event) {
@@ -33,7 +32,7 @@ class BookListManager {
 
     const title = this.titleInput.value.trim();
     const author = this.authorInput.value.trim();
-
+    
     if (title === '' || author === '') {
       console.log('Please enter both title and author name.');
       return;
