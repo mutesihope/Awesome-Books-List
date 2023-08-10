@@ -131,6 +131,12 @@ I have added the linters or tests in order to avoid anykind of typos and ensure 
 - Twitter: [@twitterhandle](https://twitter.com/AbuTalha8T)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abu-talha-8203b252/)
 
+👤 **Obote**
+
+- GitHub: [@Obote](https://github.com/Obote/)
+- Twitter: [@Obote_denis](https://twitter.com/Obote_denis)
+- LinkedIn: [Obote-denis](https://www.linkedin.com/in/obote-denis-9859a2a3/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
