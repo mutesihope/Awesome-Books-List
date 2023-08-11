@@ -55,7 +55,7 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  /* background-color: rgb(211, 211, 214); */
+  background-color: rgb(211, 211, 214);
   padding: 5px 100px 0px 10px;  
 }
 
