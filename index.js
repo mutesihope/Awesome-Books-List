@@ -2,131 +2,95 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
-function removeBook(event) {
-  const bookDiv = event.target.parentNode;
-  const hrLine = bookDiv.nextElementSibling; // Get the <hr> element after the book div
-  bookDiv.remove();
-  if (hrLine) {
-    hrLine.remove(); // Remove the <hr> line if it exists
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+}
+
+class BookManager {
+  constructor() {
+    this.books = this.loadBooks();
+    this.bookData = document.getElementById('bookData');
+    this.bookForm = document.getElementById('bookForm');
+    this.booksLink = document.getElementById('booksLink');
+    this.addBookLink = document.getElementById('addBookLink');
+    this.contactLink = document.getElementById('contactLink');
+
+    this.booksLink.addEventListener('click', () => this.showSection('booksSection'));
+    this.addBookLink.addEventListener('click', () => this.showSection('addBookSection'));
+    this.contactLink.addEventListener('click', () => this.showSection('contactSection'));
+
+    this.bookForm.addEventListener('submit', this.addBook.bind(this));
+    this.displayBooks();
   }
 
-  // Update local storage after removing the book
-  updateLocalStorage();
-}
-// Function to add a book to the list and update local storage
-function addBook(event) {
-  event.preventDefault();
-
-  const titleInput = document.getElementById('title');
-  const authorInput = document.getElementById('author');
-  const title = titleInput.value;
-  const author = authorInput.value;
-  // avoids default or empty submition
-  if (title.trim() === '' || author.trim() === '') {
-    console.log('Please enter both title and author name.');
-    return;
+  loadBooks() {
+    const storedBooks = localStorage.getItem('books');
+    return storedBooks ? JSON.parse(storedBooks) : [];
   }
 
-  const bookList = document.querySelector('.Booklist ul');
-  const newBookItem = document.createElement('li');
-  newBookItem.innerHTML = `${title}<span> by </span>${author}`;
+  saveBooks() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
 
-  const removeButton = document.createElement('button');
-  removeButton.className = 'button-remove';
-  removeButton.textContent = 'Remove';
-  removeButton.addEventListener('click', removeBook);
+  displayBooks() {
+    this.bookData.innerHTML = '';
 
-  // adds a new book and remove button
-  const bookDiv = document.createElement('div');
-  bookDiv.className = 'Booklist';
-  bookDiv.appendChild(newBookItem);
-  bookDiv.appendChild(removeButton);
-
-  const hrLine = document.createElement('hr');
-  hrLine.className = 'hr-line';
-
-  bookList.appendChild(bookDiv);
-  bookList.appendChild(hrLine);
-
-  // Clear input fields after adding the book
-  titleInput.value = '';
-  authorInput.value = '';
-  // Update local storage after adding the book
-  updateLocalStorage();
-}
-
-// Function to update local storage with the current book list
-function updateLocalStorage() {
-  const bookList = document.querySelectorAll('.Booklist ul li');
-  const books = [];
-
-  bookList.forEach((bookItem) => {
-    const title = bookItem.innerText.split(' by ')[0];
-    const author = bookItem.innerText.split(' by ')[1];
-    books.push({ title, author });
-  });
-
-  localStorage.setItem('books', JSON.stringify(books));
-}
-
-// Function to load books from local storage
-function loadBooks() {
-  const books = JSON.parse(localStorage.getItem('books'));
-
-  if (books) {
-    const bookList = document.querySelector('.Booklist ul');
-    bookList.innerHTML = '';
-
-    books.forEach((book) => {
-      const newBookItem = document.createElement('li');
-      newBookItem.innerHTML = `${book.title}<span> by </span>${book.author}`;
-
-      const removeButton = document.createElement('button');
-      removeButton.className = 'button-remove';
-      removeButton.textContent = 'Remove';
-      removeButton.addEventListener('click', removeBook);
-
+    this.books.forEach((book, index) => {
       const bookDiv = document.createElement('div');
-      bookDiv.className = 'Booklist';
-      bookDiv.appendChild(newBookItem);
-      bookDiv.appendChild(removeButton);
+      bookDiv.classList.add('book-lists');
+      bookDiv.textContent = `${book.title} by ${book.author}`;
 
-      const hrLine = document.createElement('hr');
-      hrLine.className = 'hr-line';
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Delete';
+      removeBtn.addEventListener('click', () => this.removeBook(index));
 
-      bookList.appendChild(bookDiv);
-      bookList.appendChild(hrLine);
+      bookDiv.appendChild(removeBtn);
+      this.bookData.appendChild(bookDiv);
+
+      const hr = document.createElement('hr');
+      this.bookData.appendChild(hr);
+    });
+  }
+
+  addBook(event) {
+    event.preventDefault();
+
+    const bookTitle = document.getElementById('bookTitle');
+    const bookAuthor = document.getElementById('bookAuthor');
+
+    const title = bookTitle.value;
+    const author = bookAuthor.value;
+
+    const book = new Book(title, author);
+    this.books.push(book);
+
+    this.saveBooks();
+    this.displayBooks();
+
+    bookTitle.value = '';
+    bookAuthor.value = '';
+  }
+
+  removeBook(index) {
+    this.books.splice(index, 1);
+
+    this.saveBooks();
+    this.displayBooks();
+  }
+
+  showSection(sectionId) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach((section) => {
+      if (section.id === sectionId) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
     });
   }
 }
 
-// Add event listener to the Add button
-const addButton = document.querySelector('.button-submit');
-addButton.addEventListener('click', addBook);
-
-// Load books from local storage on new page load
-window.addEventListener('load', loadBooks);
-
-handleFormSubmission(event) {
-  event.preventDefault();
-
-  const bookTitle = document.getElementById('bookTitle');
-  const bookAuthor = document.getElementById('bookAuthor');
-
-  const title = bookTitle.value.trim();
-  const author = bookAuthor.value.trim();
-
-  if (title === '' || author === '') {
-    console.log('Please enter both title and author name.');
-    return;
-  }
-
-  const book = new Book(title, author);
-  this.books.push(book);
-
-  this.saveBooksToStorage();
-  this.displayBooks();
-
-  bookTitle.value = '';
-  bookAuthor.value = '';
-}
+const bookManager = new BookManager();
