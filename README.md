@@ -30,6 +30,10 @@ An Awesome books store project, where you can enter the name and author of the b
 2-CSS
 3-JS
 
+## Live Demo <a name="live demo"></a>
+
+[Live Demo](https://mutesihope.github.io/Awesome-Books-List/)
+
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
