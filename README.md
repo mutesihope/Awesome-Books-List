@@ -23,7 +23,9 @@
 # 📖 Awesome Books Project <a name="about-project"></a>
 
 An Awesome books store project, where you can enter the name and author of the books and have it stored, Developed using Html, Css and Javascript
+## Live Demo <a name="live demo"></a>
 
+[Live Demo](https://mutesihope.github.io/Awesome-Books-List/)
 ## 🛠 Built With <a name="built-with"></a>
 
 1-HTML
